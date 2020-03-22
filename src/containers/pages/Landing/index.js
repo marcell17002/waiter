@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Text,TextInput, View, Image, ScrollView } from 'react-native';
 import { SliderBox } from "react-native-image-slider-box";
-
+import Merchant from '../../../components/molecules/Merchant/';
+import Menu from '../../../components/molecules/Menu/';
 class Landing extends Component{
     constructor(props) {
         super(props);
@@ -43,10 +44,10 @@ class Landing extends Component{
                             <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
                         </View>
                         <View style={{ flexDirection: 'row',marginHorizontal:40,marginTop:30,marginBottom:'7%', justifyContent: 'space-between'}}>
-                             <View style={{backgroundColor:'#E3292A',borderRadius:25}}>
+                             <View style={{backgroundColor:'#E3292A',borderRadius:25,height:'90%'}}>
                                  <Text style={{fontSize:15,paddingLeft:20,paddingTop:'5%',paddingBottom:'5%',paddingRight:20, color:'white' }}>Ganti Menu </Text>
                             </View>  
-                            <View style={{backgroundColor:'#E3292A',borderRadius:25}}>
+                            <View style={{backgroundColor:'#E3292A',borderRadius:25,height:'90%'}}>
                                  <Text style={{fontSize:15,paddingLeft:20,paddingRight:20,paddingTop:'5%',paddingBottom:'5%', color:'white' }}>One More</Text>
                             </View>   
                         </View>
@@ -57,16 +58,39 @@ class Landing extends Component{
                     </View>
                 </View>
                 <View style={{flex:1,marginTop:'60%'}}>
-                    <View style={{ flexDirection: 'row',marginHorizontal:20,marginTop:20,marginBottom:'10%', justifyContent: 'space-between'}}>
+                    <View style={{ flexDirection: 'row',marginHorizontal:16,marginTop:20,marginBottom:'10%', justifyContent: 'space-between'}}>
                         <Text style={{fontSize:18,color:'Black',marginTop:7 }}>Tempat Makan Rekomendasi </Text>
-                        <View style={{backgroundColor:'#E3292A',width:'20%',borderRadius:25}}>
-                            <Text style={{fontSize:15,top:'25%',textAlign:'center',paddingLeft:10,paddingRight:10, color:'white' }}>See All</Text>
+                        <View style={{backgroundColor:'#E3292A',width:'20%',height:'80%',borderRadius:25}}>
+                            <Text style={{fontSize:15,top:'20%',textAlign:'center',paddingLeft:10,paddingRight:10, color:'white' }}>See All</Text>
                         </View>   
                     </View>
                 </View>
+                <View>
+                    <ScrollView horizontal style={{flexDirection:'row'}}>
+                        <Merchant tittle='Ayam Nelongso' img={require('../../../assets/ayam_nelongso.jpg')}/>
+                        <Merchant tittle='Mie Aceh' img={require('../../../assets/mie_aceh.jpg')}/>
+                        <Merchant tittle='Taichan' img={require('../../../assets/taichan.png')}/>
+                        <Merchant tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>
+                    </ScrollView>
+                </View>
+                <View style={{backgroundColor:'#fafafa',height:25}}/>
+                <View style={{marginHorizontal:16}}>
+                    <View style={{borderRadius:14}}>
+                        <Image style={{width:360,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo.png')} />      
+                    </View>
+                    <View>
+                        <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
+                        <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
+                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,paddingVertical:11,borderRadius:6,alignSelf:'flex-end'}}>
+                            <Text  style={{fontSize:15,fontWeight:'400',color:'white'}}>READ</Text>
+                        </View>
+                    </View>
+                </View>
                 </ScrollView>
-                <View style={{height:40,backgroundColor:'#ededed'}}>
-                    {/* MENU BOTTOM BAR */}
+                <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
+                    <Menu tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
+                    <Menu tittle='Orders' img={require('../../../assets/icon-order.png')}/>
+                    <Menu tittle='Profile' img={require('../../../assets/icon-account.png')}/>
                 </View>
             </View>
         )
