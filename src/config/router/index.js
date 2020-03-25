@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login,Register,Landing } from '../../containers/pages/';
+import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile} from '../../containers/pages/';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -26,6 +26,23 @@ function App() {
             name="Landing"
             component={Landing}
         />
+         <Stack.Screen
+            name="MerchantPicker"
+            component={MerchantPicker}
+        />
+          <Stack.Screen
+            name="MenuPicker"
+            component={MenuPicker}
+        />
+        <Stack.Screen
+            name="Orders"
+            component={Orders}
+        />
+        <Stack.Screen
+            name="Profile"
+            component={Profile}
+        />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );

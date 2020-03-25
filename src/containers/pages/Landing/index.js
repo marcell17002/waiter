@@ -48,7 +48,7 @@ class Landing extends Component{
                                  <Text style={{fontSize:15,paddingLeft:20,paddingTop:'5%',paddingBottom:'5%',paddingRight:20, color:'white' }}>Ganti Menu </Text>
                             </View>  
                             <View style={{backgroundColor:'#E3292A',borderRadius:25,height:'90%'}}>
-                                 <Text style={{fontSize:15,paddingLeft:20,paddingRight:20,paddingTop:'5%',paddingBottom:'5%', color:'white' }}>One More</Text>
+                                 <Text style={{fontSize:15,paddingLeft:20,paddingRight:20,paddingTop:'5%',paddingBottom:'5%', color:'white' }} onPress={() => navigate('MerchantPicker')} >One More</Text>
                             </View>   
                         </View>
                     </View>
@@ -57,7 +57,7 @@ class Landing extends Component{
                         <Text style={{fontSize:18,top:10,textAlign:'center',width:'100%', borderColor:'black' }}>Terakhir Dibeli</Text>
                     </View>
                 </View>
-                <View style={{flex:1,marginTop:'60%'}}>
+                <View style={{flex:1,marginTop:'70%'}}>
                     <View style={{ flexDirection: 'row',marginHorizontal:16,marginTop:20,marginBottom:'10%', justifyContent: 'space-between'}}>
                         <Text style={{fontSize:18,color:'Black',marginTop:7 }}>Tempat Makan Rekomendasi </Text>
                         <View style={{backgroundColor:'#E3292A',width:'20%',height:'80%',borderRadius:25}}>
