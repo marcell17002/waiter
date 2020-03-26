@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Text,TextInput, View, Image, ScrollView } from 'react-native';
 import { SliderBox } from "react-native-image-slider-box";
 import Merchant from '../../../components/molecules/Merchant/';
-import Menu from '../../../components/molecules/Menu/';
+import Navbar from '../../organism/Navbar/';
+import Menu from '../../../components/molecules/Menu/'
+
 class Landing extends Component{
     constructor(props) {
         super(props);
@@ -67,10 +69,10 @@ class Landing extends Component{
                 </View>
                 <View>
                     <ScrollView horizontal style={{flexDirection:'row'}}>
-                        <Merchant tittle='Ayam Nelongso' img={require('../../../assets/ayam_nelongso.jpg')}/>
-                        <Merchant tittle='Mie Aceh' img={require('../../../assets/mie_aceh.jpg')}/>
-                        <Merchant tittle='Taichan' img={require('../../../assets/taichan.png')}/>
-                        <Merchant tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>
+                        <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Ayam Nelongso' img={require('../../../assets/ayam_nelongso.jpg')}/>
+                        <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Mie Aceh' img={require('../../../assets/mie_aceh.jpg')}/>
+                        <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Taichan' img={require('../../../assets/taichan.png')}/>
+                        <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>
                     </ScrollView>
                 </View>
                 <View style={{backgroundColor:'#fafafa',height:25}}/>
@@ -88,9 +90,9 @@ class Landing extends Component{
                 </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
-                    <Menu tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Menu tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
+                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
+                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
                 </View>
             </View>
         )

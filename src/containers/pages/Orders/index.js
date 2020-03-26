@@ -20,15 +20,15 @@ class Orders extends Component{
                         <Separator />
                     </View>
                     <View style={{marginBottom:'20%'}}>
-                        <History date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
-                        <History date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
-                        <History date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
+                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
+                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
+                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu tittle='Home' img={require('../../../assets/icon-home.png')}/>
-                    <Menu tittle='Orders' img={require('../../../assets/icon-orders-active.png')}/>
-                    <Menu tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home.png')}/>
+                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-orders-active.png')}/>
+                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
                 </View>
             </View>
         )

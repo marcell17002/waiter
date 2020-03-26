@@ -1,8 +1,8 @@
 import React from 'react';
-import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile} from '../../containers/pages/';
+import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile, EditProfile,Invoice} from '../../containers/pages/';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, createSwitchNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
@@ -42,10 +42,17 @@ function App() {
             name="Profile"
             component={Profile}
         />
+         <Stack.Screen
+            name="EditProfile"
+            component={EditProfile}
+        />
+         <Stack.Screen
+            name="Invoice"
+            component={Invoice}
+        />
        
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
 export default App;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Text,TouchableOpacity,StyleSheet, View, Image, ScrollView, Button, Alert} from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, Button, Alert} from 'react-native';
 import Order from '../../../components/molecules/Order';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 class MenuPicker  extends Component{
     constructor(props) {
         super(props);
@@ -33,7 +34,7 @@ class MenuPicker  extends Component{
                                 <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Order item(s)</Text>
                             </View>
                             <View>
-                                <Text style={{fontSize:16,color:'#24972B',paddingRight:'2%',fontWeight:'bold'}}>+ Add More</Text>
+                                <Text style={{fontSize:16,color:'#24972B',paddingRight:'2%',fontWeight:'bold'}} onPress={()=>navigate('MerchantPicker')}>+ Add More</Text>
                             </View>
                         </View>
                     <View style={{marginBottom:'40%'}}>
@@ -46,14 +47,16 @@ class MenuPicker  extends Component{
                     </View>
                 </ScrollView>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.fab}>
+                    <View style={styles.fab}>
+                        <TouchableOpacity onPress={()=> navigate('Orders')}>
                         <View style={styles.containt}>
                             <View style={{paddingLeft:'30%'}}>
                                 <Text style={{fontSize:18,color:'white',textAlign:'center'}}> 100.000</Text>
                                 <Text style={{fontSize:20,color:'white',textAlign:'center',fontWeight:'bold'}}>Pre Order Now</Text>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )

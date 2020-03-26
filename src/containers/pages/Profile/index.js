@@ -35,7 +35,7 @@ class Profile extends Component{
                                 <Text style={{fontSize:15,color:'black',fontWeight:'400'}}>+62 895401011469</Text>
                             </View>
                             <View style={{backgroundColor:'#F20C94',marginLeft:'22%',width:50,height:30,borderRadius:25}}>
-                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}}>Edit</Text> 
+                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}} onPress={()=> navigate('EditProfile')}>Edit</Text> 
                             </View>
                         </View>
                         <View style={{marginTop:'10%'}}>
@@ -55,14 +55,14 @@ class Profile extends Component{
                         </View>
                         
                         <View style={{marginHorizontal:'15%',marginTop:'15%',backgroundColor:'#FCB11C',height:40,width:240,borderRadius:25}}>
-                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}> Sign Out</Text>
+                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}  onPress={() => navigate('Login')}> Sign Out</Text>
                         </View>
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu tittle='Home' img={require('../../../assets/icon-home.png')}/>
-                    <Menu tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Menu tittle='Profile' img={require('../../../assets/icon-account-active.png')}/>
+                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home.png')}/>
+                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
+                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account-active.png')}/>
                 </View>
             </View>
         )

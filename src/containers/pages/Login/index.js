@@ -13,7 +13,7 @@ class Login extends Component{
                 <TextInput placeholder="Username" style={{ marginTop:10, height: 40, width: 300,paddingLeft:15, borderColor: 'gray', borderWidth: 1, borderRadius:25}} onChangeText={text => onChangeText(text)}/>
                 <TextInput placeholder="Password" style={{ marginTop:10, height: 40, width: 300,paddingLeft:15, borderColor: 'gray', borderWidth: 1, borderRadius:25}} onChangeText={text => onChangeText(text)}/>
                 <View style={{backgroundColor:'#432f96', borderRadius:15,marginTop:20,paddingBottom:7,paddingTop:7}}>
-                    <Text style={{fontSize:22,fontWeight: 'bold', color:'white',textAlign:'center'}} onPress={() => navigate('Profile')}>Login</Text>
+                    <Text style={{fontSize:22,fontWeight: 'bold', color:'white',textAlign:'center'}} onPress={() => navigate('Orders')}>Login</Text>
                 </View>
                 </View>
                 {/* <View style={{backgroundColor:'#ffff',marginTop:20,marginLeft:50,marginRight:50}}>

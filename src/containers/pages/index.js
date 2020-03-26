@@ -5,6 +5,8 @@ import MerchantPicker from './MerchantPicker';
 import MenuPicker from './MenuPicker';
 import Orders from './Orders';
 import Profile from './Profile';
+import EditProfile from './EditProfile';
+import Invoice from './Invoice';
 
 export{
     Login,
@@ -14,4 +16,6 @@ export{
     MenuPicker,
     Orders,
     Profile,
+    EditProfile,
+    Invoice,
 }

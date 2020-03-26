@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Text,TouchableOpacity,StyleSheet, View, Image, ScrollView } from 'react-native';
-import Menu from '../../../components/molecules/Menu';
+import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
 import MenuMerchant from '../../../components/molecules/MenuMerchant';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 class MerchantPicker  extends Component{
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ class MerchantPicker  extends Component{
                         <View>
                             <Image style={{width:400,height:300}} source={require('../../../assets/dominoz.jpg')}/>
                         </View>
-                        <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}  onPress={() => navigate('MenuPicker')} > Dominoz Pizza</Text>
+                        <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}> Dominoz Pizza</Text>
                         <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}> Jatinangor Sumedang</Text>
                         
                         <View style={{marginTop:20}}>
@@ -32,7 +32,8 @@ class MerchantPicker  extends Component{
                     
                 </ScrollView>
                 <View style={styles.container}>
-                    <TouchableOpacity style={styles.fab}>
+                    <View style={styles.fab}>
+                        <TouchableOpacity onPress={() => navigate('MenuPicker')}>
                         <View style={styles.containt}>
                             <View style={{flexDirection:'row',paddingLeft:'10%'}}>
                                 <Text style={{fontSize:20,color:'white'}}>2 item </Text>
@@ -43,7 +44,8 @@ class MerchantPicker  extends Component{
                                 <Image style={{width:undefined,height:undefined,flex:1,resizeMode:'contain'}}source={require('../../../assets/ic_shop.png')}/>
                             </View>
                         </View>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
