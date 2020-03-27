@@ -15,10 +15,6 @@ class Profile extends Component{
         return (
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
-                    <View style={{marginTop:'10%'}}>
-                        <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>My Profile</Text>
-                        <Separator />
-                    </View>
                     <View style={{marginHorizontal:15}}>
                         <View>
                             <Text style={{fontSize:17,marginTop:'2%',color:'Black',textAlign:'center',fontWeight:'bold'}}>Free Account</Text>
@@ -60,9 +56,9 @@ class Profile extends Component{
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home.png')}/>
-                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account-active.png')}/>
+                    <Menu OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home.png')}/>
+                    <Menu OnPress={() => navigate('OrdersStackScreen',{screen:'Orders'})} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
+                    <Menu OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account-active.png')}/>
                 </View>
             </View>
         )

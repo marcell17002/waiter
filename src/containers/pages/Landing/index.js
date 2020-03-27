@@ -90,9 +90,9 @@ class Landing extends Component{
                 </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
-                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Menu OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
+                    <Menu OnPress={() => navigate('OrdersStackScreen',{screen:'Orders'})} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
+                    <Menu OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
                 </View>
             </View>
         )

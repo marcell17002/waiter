@@ -15,10 +15,6 @@ class Orders extends Component{
         return (
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
-                    <View style={{marginTop:'10%'}}>
-                        <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>Ongoing Orders</Text>
-                        <Separator />
-                    </View>
                     <View style={{marginBottom:'20%'}}>
                         <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
                         <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
@@ -26,9 +22,9 @@ class Orders extends Component{
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Menu OnPress={() => navigate('Landing')} tittle='Home' img={require('../../../assets/icon-home.png')}/>
-                    <Menu OnPress={() => navigate('Orders')} tittle='Orders' img={require('../../../assets/icon-orders-active.png')}/>
-                    <Menu OnPress={() => navigate('Profile')} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Menu OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home.png')}/>
+                    <Menu OnPress={() => navigate('OrdersStackScreen',{screen:'Orders'})} tittle='Orders' img={require('../../../assets/icon-orders-active.png')}/>
+                    <Menu OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
                 </View>
             </View>
         )
