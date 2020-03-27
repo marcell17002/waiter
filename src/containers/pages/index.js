@@ -7,6 +7,7 @@ import Orders from './Orders';
 import Profile from './Profile';
 import EditProfile from './EditProfile';
 import Invoice from './Invoice';
+import Searching from './Searching';
 
 export{
     Login,
@@ -18,4 +19,5 @@ export{
     Profile,
     EditProfile,
     Invoice,
+    Searching,
 }

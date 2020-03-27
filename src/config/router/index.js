@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile, EditProfile,Invoice} from '../../containers/pages/';
+import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile, EditProfile,Invoice,Searching} from '../../containers/pages/';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
@@ -22,6 +22,7 @@ function HomeStackScreen () {
   return(
   <HomeStack.Navigator screenOptions={{gestureEnabled: false }} >
     <HomeStack.Screen name="Landing" component={Landing}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+    <HomeStack.Screen name="Searching" component={Searching}/>
     <HomeStack.Screen name="MerchantPicker" component={MerchantPicker}/>
     <HomeStack.Screen name="MenuPicker" component={MenuPicker}/>
   </HomeStack.Navigator>
@@ -53,6 +54,6 @@ function App() {
         <Stack.Screen name="ProfileStackScreen" component={ProfileStackScreen}/>   
       </Stack.Navigator>
         </NavigationContainer>
-);
-  }
-  export default App;
+  );
+}
+export default App;
