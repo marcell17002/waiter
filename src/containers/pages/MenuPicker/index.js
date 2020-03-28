@@ -2,9 +2,15 @@ import React, {Component} from 'react';
 import {Text,StyleSheet, View, Image, ScrollView, Button, Alert} from 'react-native';
 import Order from '../../../components/molecules/Order';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { connect } from 'react-redux';
+import { counterIncrement , counterDecrement} from '../../../config/redux/actions/counterActions';
+
 class MenuPicker  extends Component{
     constructor(props) {
         super(props);
+        this.state ={
+            count: 0
+        };
       }
     render(){
         const { navigate } = this.props.navigation;
@@ -38,12 +44,8 @@ class MenuPicker  extends Component{
                             </View>
                         </View>
                     <View style={{marginBottom:'40%'}}>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-
+                        <Order order={this.props.count} plus= {this.props.counterIncrement} minus={this.props.counterDecrement} tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
+                        <Order  order={this.props.count} plus= {this.props.counterIncrement} minus={this.props.counterDecrement} tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
                     </View>
                 </ScrollView>
                 <View style={styles.container}>
@@ -62,7 +64,13 @@ class MenuPicker  extends Component{
         )
     }
 }
-export default MenuPicker;
+function mapStateToProps(state){
+    return{
+        count: state
+    }
+}
+
+export default connect(mapStateToProps,{counterIncrement, counterDecrement})(MenuPicker);
 
 const styles = StyleSheet.create({
     fab:{

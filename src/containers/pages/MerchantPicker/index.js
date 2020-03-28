@@ -1,17 +1,22 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, Button } from 'react-native';
 import MenuMerchant from '../../../components/molecules/MenuMerchant';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import {connect} from 'react-redux';
+import { counterIncrement} from '../../../config/redux/actions/counterActions';
+
 class MerchantPicker  extends Component{
     constructor(props) {
         super(props);
+        this.state ={
+            count: 0
+        };
       }
     render(){
         const { navigate } = this.props.navigation;
         return (
             <View style={{flex:1,backgroundColor:'#ffff'}}>
                 <ScrollView>
-                    
                     <View style={{position:'relative'}}>
                         <View>
                             <Image style={{width:400,height:300}} source={require('../../../assets/dominoz.jpg')}/>
@@ -20,12 +25,8 @@ class MerchantPicker  extends Component{
                         <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}> Jatinangor Sumedang</Text>
                         
                         <View style={{marginTop:20}}>
-                            <MenuMerchant tittle_menu='Pizza Peperroni' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                            <MenuMerchant tittle_menu='Pizza Cheese' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                            <MenuMerchant tittle_menu='Pizza Delicious' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                            <MenuMerchant tittle_menu='Pizza Peperroni' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                            <MenuMerchant tittle_menu='Pizza Peperroni' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                        
+                            <MenuMerchant  plus={this.props.counterIncrement} tittle_menu='Pizza Peperroni' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
+                            <MenuMerchant  plus={this.props.counterIncrement}  tittle_menu='Pizza Cheese' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
                         </View>
 
                     </View>
@@ -36,7 +37,7 @@ class MerchantPicker  extends Component{
                         <TouchableOpacity onPress={() => navigate('MenuPicker')}>
                         <View style={styles.containt}>
                             <View style={{flexDirection:'row',paddingLeft:'10%'}}>
-                                <Text style={{fontSize:20,color:'white'}}>2 item </Text>
+                                <Text style={{fontSize:20,color:'white'}}>{this.props.count} item </Text>
                                 <Text style={{fontSize:20,color:'white'}}>|</Text>
                                 <Text style={{fontSize:20,color:'white'}} > 100.000</Text>
                             </View>
@@ -50,8 +51,15 @@ class MerchantPicker  extends Component{
             </View>
         )
     }
+}  
+
+function mapStateToProps(state){
+    return{
+        count: state
+    }
 }
-export default MerchantPicker;
+
+export default connect(mapStateToProps,{counterIncrement})(MerchantPicker);
 
 const styles = StyleSheet.create({
     fab:{

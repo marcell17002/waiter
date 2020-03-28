@@ -17,7 +17,7 @@ const MenuMerchant = (props) =>{
                     <Text style={{color:'black',paddingLeft:'25%',paddingTop:10,fontWeight:'bold',fontSize:15}}>40000</Text>
                 </View>  
                 <View style={{backgroundColor:'#E3292A',borderRadius:25,height:35,width:60}}>
-                    <Text style={{fontSize:16,color:'white',paddingVertical:6,textAlign:'center'}}>Add +</Text>
+                    <Text style={{fontSize:16,color:'white',paddingVertical:6,textAlign:'center'}} onPress={props.plus}>Add +</Text>
                 </View>
             </View>
             <View style={{width:80, height:90,position:'absolute'}}>
