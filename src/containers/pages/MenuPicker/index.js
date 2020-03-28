@@ -17,7 +17,7 @@ class MenuPicker  extends Component{
         return (
             <View style={{flex:1,backgroundColor:'white'}}>
                 <ScrollView>
-                    <View style={{flexDirection:'row',marginTop:20,paddingVertical:'5%',backgroundColor:'white'}}>
+                    <View style={{flexDirection:'row',marginTop:10,paddingVertical:'5%',backgroundColor:'white'}}>
                         <View style={{top:5,paddingLeft:'2%'}}>
                             <Image style={{width:35,height:35,resizeMode:'contain'}}source={require('../../../assets/target.png')}/>
                         </View>
@@ -31,7 +31,7 @@ class MenuPicker  extends Component{
                             <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Estimating Time</Text>
                             <Text style={{fontSize:13,color:'grey',fontWeight:'600'}}>You will get your order in </Text>
                         </View>
-                        <View style={{marginLeft:'45%',alignSelf:'flex-end'}}>    
+                        <View style={{marginLeft:'85%',position:'absolute',alignSelf:'flex-end'}}>    
                             <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
                         </View>
                     </View>
@@ -50,7 +50,7 @@ class MenuPicker  extends Component{
                 </ScrollView>
                 <View style={styles.container}>
                     <View style={styles.fab}>
-                        <TouchableOpacity onPress={()=> navigate('Orders')}>
+                        <TouchableOpacity onPress={()=>navigate('OrdersStackScreen',{screen:'Orders'})}>
                         <View style={styles.containt}>
                             <View style={{paddingLeft:'30%'}}>
                                 <Text style={{fontSize:18,color:'white',textAlign:'center'}}> 100.000</Text>

@@ -13,11 +13,7 @@ class EditProfile extends Component{
         
         return (
             <View style={{flex:1,marginHorizontal:15}}>
-                <View style={{marginTop:'10%'}}>
-                    <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>My Profile</Text>
-                    <Separator />
-                </View>
-                <View style={{alignSelf:'center'}}>
+                <View style={{alignSelf:'center',marginTop:'5%'}}>
                     <Image style={{width:100,height:100,borderRadius:100/2}}source={require('../../../assets/pizza1.jpg')}/>
                 </View>
                 <View>

@@ -62,9 +62,9 @@ class Landing extends Component{
                         <Text style={{fontSize:18,top:10,textAlign:'center',width:'100%', borderColor:'black' }}>Terakhir Dibeli</Text>
                     </View>
                 </View>
-                <View style={{flex:1,marginTop:'70%'}}>
+                <View style={{flex:1,marginTop:'60%'}}>
                     <View style={{ flexDirection: 'row',marginHorizontal:16,marginTop:20,marginBottom:'10%', justifyContent: 'space-between'}}>
-                        <Text style={{fontSize:18,color:'Black',marginTop:7 }}>Tempat Makan Rekomendasi </Text>
+                        <Text style={{fontSize:18,color:'black',fontWeight:'550',marginTop:7 }}>Tempat Makan Rekomendasi </Text>
                         <View style={{backgroundColor:'#E3292A',width:'20%',height:'80%',borderRadius:25}}>
                             <Text style={{fontSize:15,top:'20%',textAlign:'center',paddingLeft:10,paddingRight:10, color:'white' }}>See All</Text>
                         </View>   
@@ -78,8 +78,7 @@ class Landing extends Component{
                         <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>
                     </ScrollView>
                 </View>
-                <View style={{backgroundColor:'#fafafa',height:25}}/>
-                <View style={{marginHorizontal:16}}>
+                <View style={{marginHorizontal:16,marginTop:'5%',marginBottom:'5%'}}>
                     <View style={{borderRadius:14}}>
                         <Image style={{width:360,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo.png')} />      
                     </View>

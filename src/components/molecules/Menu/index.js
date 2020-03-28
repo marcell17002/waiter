@@ -8,7 +8,7 @@ const Menu = (props) =>{
                 <View style={{width:26,height:26}}>
                     <Image source={props.img} />
                 </View>
-                <Text style={{fontSize:10,color:'#545454',marginTop:4}}>{props.tittle}</Text>
+                <Text style={{fontSize:10,color:'#545454',marginTop:4,textAlign:'center'}}>{props.tittle}</Text>
             </TouchableOpacity>
         </View>
     )

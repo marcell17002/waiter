@@ -17,12 +17,12 @@ class Invoice  extends Component{
         return (
             <View style={{flex:1,backgroundColor:'white'}}>
                 <ScrollView>
-                    <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:40}}>
+                    <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:20}}>
                         <View>
                             <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Estimating Time</Text>
                             <Text style={{fontSize:13,color:'grey',fontWeight:'600'}}>You will get your order in </Text>
                         </View>
-                        <View style={{marginLeft:'45%',alignSelf:'flex-end'}}>    
+                        <View style={{marginLeft:'85%',position:'absolute',alignSelf:'flex-end'}}>    
                             <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
                         </View>
                     </View>

@@ -8,7 +8,7 @@ const Merchant = (props) =>{
             <View style={{width:150, height:150,borderRadius:14}}>
                 <Image style={{width:undefined,height:undefined,resizeMode:'contain',flex:1,borderRadius:4}} source={props.img} />
             </View>
-            <Text style={{fontSize:16,textAlign:'center',paddingTop:5,paddingBottom:5,color:'Black' }}>{props.tittle}</Text>
+            <Text style={{fontSize:16,textAlign:'center',color:'black',fontWeight:'700',paddingVertical:10}}>{props.tittle}</Text>
             </TouchableOpacity>
         </View>
     )

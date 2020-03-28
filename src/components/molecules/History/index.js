@@ -29,8 +29,8 @@ const History = props => {
             <Text style={{color:'black',fontSize:14,fontWeight:'700'}}>Do you have arrived ? </Text>
             <Text style={{color:'grey',fontSize:10,fontWeight:'500'}}>( turn on your toogle button when you have arrived )</Text>
           </View>
-          <View style={{marginLeft:'18%'}}>
-          <Switch trackColor={{ false: "#767577", true: "#31B059" }} thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"} ios_backgroundColor="#3e3e3e" onValueChange={toggleSwitch} value={isEnabled}/>
+          <View style={{marginLeft:'18%',position:'absolute',marginLeft:'70%'}}>
+            <Switch trackColor={{ false: "#767577", true: "#31B059" }} thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"} ios_backgroundColor="#3e3e3e" onValueChange={toggleSwitch} value={isEnabled}/>
           </View>
         </View>
     </View>

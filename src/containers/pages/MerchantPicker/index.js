@@ -19,7 +19,7 @@ class MerchantPicker  extends Component{
                 <ScrollView>
                     <View style={{position:'relative'}}>
                         <View>
-                            <Image style={{width:400,height:300}} source={require('../../../assets/dominoz.jpg')}/>
+                            <Image style={{width:'100%',height:300}} source={require('../../../assets/dominoz.jpg')}/>
                         </View>
                         <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}> Dominoz Pizza</Text>
                         <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}> Jatinangor Sumedang</Text>
