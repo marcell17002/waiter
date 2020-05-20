@@ -12,7 +12,7 @@ const Stack = createStackNavigator();
 
 function PreStackScreen () {
   return(
-  <PreStack.Navigator>
+  <PreStack.Navigator screenOptions={{headerShown: false}}>
     <PreStack.Screen name="Login" component={Login}/>
     <PreStack.Screen name="Register" component={Register}/>
   </PreStack.Navigator>
@@ -20,8 +20,8 @@ function PreStackScreen () {
   }
 function HomeStackScreen () {
   return(
-  <HomeStack.Navigator screenOptions={{gestureEnabled: false }} >
-    <HomeStack.Screen name="Landing" component={Landing}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+  <HomeStack.Navigator>
+    <HomeStack.Screen name="Landing"  options={{headerShown: false}}  component={Landing}/>
     <HomeStack.Screen name="Searching" component={Searching}/>
     <HomeStack.Screen name="MerchantPicker" component={MerchantPicker}/>
     <HomeStack.Screen name="MenuPicker" component={MenuPicker}/>
@@ -31,7 +31,7 @@ function HomeStackScreen () {
 function OrdersStackScreen () {
   return(
   <OrdersStack.Navigator>
-    <OrdersStack.Screen name="OnGoing Orders" component={Orders}/>
+    <OrdersStack.Screen name="On-Going Orders" component={Orders}/>
     <OrdersStack.Screen name="Invoice" component={Invoice}/>
   </OrdersStack.Navigator>
 );
@@ -40,20 +40,21 @@ function ProfileStackScreen () {
   return(
   <ProfileStack.Navigator>
     <ProfileStack.Screen name="Profile" component={Profile}/>
-    <ProfileStack.Screen name="EditProfile" component={EditProfile}/>
+    <ProfileStack.Screen name="Edit Profile" component={EditProfile}/>
   </ProfileStack.Navigator>
 );
   }
 
 function App() {
   return(
-    <NavigationContainer>
+    <NavigationContainer >
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="HomeStackScreen" component={HomeStackScreen}/>
         <Stack.Screen name="OrdersStackScreen" component={OrdersStackScreen}/>
         <Stack.Screen name="ProfileStackScreen" component={ProfileStackScreen}/>   
+        <Stack.Screen name="PreStackScreen" component={PreStackScreen}/>
       </Stack.Navigator>
-        </NavigationContainer>
+    </NavigationContainer>
   );
 }
 export default App;

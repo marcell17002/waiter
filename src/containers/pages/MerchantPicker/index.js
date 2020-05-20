@@ -1,32 +1,69 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView, Button } from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, FlatList } from 'react-native';
 import MenuMerchant from '../../../components/molecules/MenuMerchant';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
-import { counterIncrement} from '../../../config/redux/actions/counterActions';
+import CartReducer from '../../../config/redux/reducer/CartReducer';
 
 class MerchantPicker  extends Component{
     constructor(props) {
-        super(props);
-        this.state ={
-            count: 0
-        };
+      super(props);
+      this.state = {
+        dataSource:[],
+        dataSourceToko:[],
+       };
+     }
+    gettingfirst(){
+      fetch("http://pesendulu.readylearn.id/item")
+      .then(response => response.json())
+      .then((responseJson)=> {
+        this.setState({
+         dataSource: responseJson.reponse
+        })
+      })
+      .catch(error=>console.log(error)) //to catch the errors if any
+    }
+    
+    gettingSecond(){
+      fetch("http://pesendulu.readylearn.id/toko")
+      .then(response => response.json())
+      .then((responseJson)=> {
+        this.setState({
+         dataSourceToko: responseJson.reponse
+        })
+      })
+      .catch(error=>console.log(error)) //to catch the errors if any
+    }
+    componentDidMount(){
+      this.gettingfirst();
+      this.gettingSecond();
       }
+      
     render(){
         const { navigate } = this.props.navigation;
-        return (
+          return (
             <View style={{flex:1,backgroundColor:'#ffff'}}>
                 <ScrollView>
                     <View style={{position:'relative'}}>
-                        <View>
-                            <Image style={{width:'100%',height:300}} source={require('../../../assets/dominoz.jpg')}/>
-                        </View>
-                        <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}> Dominoz Pizza</Text>
-                        <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}> Jatinangor Sumedang</Text>
+                        {this.state.dataSourceToko.map(item =>
+                          <View>
+                            <View>
+                                <Image style={{width:'100%',height:300}} source={{uri: item.url_foto }}/>
+                            </View>
+                          <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}>{item.nama_toko}</Text>
+                          <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}>{item.alamat}</Text>
+                          </View>
+                          )}
+                        
                         
                         <View style={{marginTop:20}}>
-                            <MenuMerchant  plus={this.props.counterIncrement} tittle_menu='Pizza Peperroni' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
-                            <MenuMerchant  plus={this.props.counterIncrement}  tittle_menu='Pizza Cheese' tittle_desc='Big deals for all of you' img={require('../../../assets/pizza1.jpg')}/>
+                        <FlatList
+                            data={this.state.dataSource}
+                            renderItem={({item}) =>
+                             <MenuMerchant  OnPress={this.props.addItemToCart} tittle_menu={item.nama_item} tittle_desc={item.jenis} price={item.harga} img={item.url_foto}/>}
+                             keyExtractor={item => item.id}
+                        />
+        
                         </View>
 
                     </View>
@@ -37,7 +74,7 @@ class MerchantPicker  extends Component{
                         <TouchableOpacity onPress={() => navigate('MenuPicker')}>
                         <View style={styles.containt}>
                             <View style={{flexDirection:'row',paddingLeft:'10%'}}>
-                                <Text style={{fontSize:20,color:'white'}}>{this.props.count} item </Text>
+                                <Text style={{fontSize:20,color:'white'}}>{this.props.cartItems.length} item </Text>
                                 <Text style={{fontSize:20,color:'white'}}>|</Text>
                                 <Text style={{fontSize:20,color:'white'}} > 100.000</Text>
                             </View>
@@ -52,14 +89,19 @@ class MerchantPicker  extends Component{
         )
     }
 }  
-
-function mapStateToProps(state){
-    return{
-        count: state
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state
     }
 }
 
-export default connect(mapStateToProps,{counterIncrement})(MerchantPicker);
+const mapDispatchToProps = (dispatch) => {
+    return {
+      addItemToCart: (product) => dispatch({ type: 'ADD_TO_CART', payload: product })
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(MerchantPicker);
 
 const styles = StyleSheet.create({
     fab:{

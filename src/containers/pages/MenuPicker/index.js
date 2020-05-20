@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView, Button, Alert} from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, FlatList, Alert} from 'react-native';
 import Order from '../../../components/molecules/Order';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-import { counterIncrement , counterDecrement} from '../../../config/redux/actions/counterActions';
 
 class MenuPicker  extends Component{
     constructor(props) {
@@ -15,6 +14,7 @@ class MenuPicker  extends Component{
     render(){
         const { navigate } = this.props.navigation;
         return (
+            
             <View style={{flex:1,backgroundColor:'white'}}>
                 <ScrollView>
                     <View style={{flexDirection:'row',marginTop:10,paddingVertical:'5%',backgroundColor:'white'}}>
@@ -43,9 +43,20 @@ class MenuPicker  extends Component{
                                 <Text style={{fontSize:16,color:'#24972B',paddingRight:'2%',fontWeight:'bold'}} onPress={()=>navigate('MerchantPicker')}>+ Add More</Text>
                             </View>
                         </View>
-                    <View style={{marginBottom:'40%'}}>
-                        <Order order={this.props.count} plus= {this.props.counterIncrement} minus={this.props.counterDecrement} tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order  order={this.props.count} plus= {this.props.counterIncrement} minus={this.props.counterDecrement} tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
+                    <View style={{}}>
+                        {this.props.cartItems.length > 0 ?
+                        
+                        <ScrollView>
+                            <FlatList
+                            data={this.props.cartItems}
+                            renderItem={({item}) =>   <Order order={this.props.count} plus= {this.props.counterIncrement} minus={this.props.counterDecrement} tittle={item.title} price='40000' img={require('../../../assets/pizza1.jpg')}/>
+                            } 
+                            keyExtractor={item => item.id}
+                            />
+                             </ScrollView>
+                            :
+                            <EmptyCart />
+                        }
                     </View>
                 </ScrollView>
                 <View style={styles.container}>
@@ -64,13 +75,21 @@ class MenuPicker  extends Component{
         )
     }
 }
-function mapStateToProps(state){
-    return{
-        count: state
+const mapStateToProps = (state) => {
+    return {
+        cartItems: state
     }
 }
 
-export default connect(mapStateToProps,{counterIncrement, counterDecrement})(MenuPicker);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        removeItem: (product, index) => {
+            dispatch({ type: 'REMOVE_FROM_CART', payload: { ...product, index } })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuPicker)
 
 const styles = StyleSheet.create({
     fab:{
@@ -93,5 +112,6 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#fff',
+      marginTop:'20%'
     },
   });

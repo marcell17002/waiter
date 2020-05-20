@@ -51,7 +51,7 @@ class Profile extends Component{
                         </View>
                         
                         <View style={{marginHorizontal:'15%',marginTop:'15%',backgroundColor:'#FCB11C',height:40,width:240,borderRadius:25}}>
-                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}  onPress={() => navigate('Login')}> Sign Out</Text>
+                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}  onPress={() => navigate('PreStackScreen', { screen: 'Login' })}> Sign Out</Text>
                         </View>
                     </View>
                 </ScrollView>

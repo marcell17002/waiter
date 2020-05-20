@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
 import Menu from '../../../components/molecules/Menu';
 import History from '../../../components/molecules/History';
+
 function Separator() {
     return <View style={{
         marginVertical: 8,
@@ -16,7 +17,6 @@ class Orders extends Component{
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
                     <View style={{marginBottom:'20%'}}>
-                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
                         <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
                         <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
                     </View>

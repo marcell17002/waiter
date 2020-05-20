@@ -1,6 +1,8 @@
 import React ,{useState} from "react";
 import { View, Image,Switch, Text } from "react-native";
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import CountDown from 'react-native-countdown-component';
+
 const History = props => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
@@ -20,7 +22,15 @@ const History = props => {
                 <Text style={{ fontSize: 14, color: "grey" }}>{props.date}</Text>
             </View>
             <View style={{marginLeft:'80%',marginTop:'2%',position:'absolute'}}>    
-                <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
+            <CountDown
+              until={60*30}
+              onFinish={() => alert('finished')}
+              onPress={() => alert('hello')}
+              size={15}
+              digitStyle={{backgroundColor: '#ffff'}}
+              timeToShow={['M', 'S']}
+              timeLabels={{m: null, s: null}}
+            />
             </View>
         </View>
         </TouchableOpacity>

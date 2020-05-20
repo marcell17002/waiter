@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,TextInput, View, Image, ScrollView } from 'react-native';
+import {ActivityIndicator ,Text,TextInput, View, Image, ScrollView } from 'react-native';
 import { SliderBox } from "react-native-image-slider-box";
 import Merchant from '../../../components/molecules/Merchant/';
 import Navbar from '../../organism/Navbar/';
@@ -7,6 +7,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Menu from '../../../components/molecules/Menu/'
 
 class Landing extends Component{
+    static navigationOptions = ({ navigation }) => {
+        return {
+           header: () => null
+        } 
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -24,25 +29,29 @@ class Landing extends Component{
             <View style={{flex:1}}>
                 <ScrollView>
                 <View style={{marginHorizontal:17,flexDirection:'row'}}>
-                    <View style={{position:'relative',flex:1,marginTop:40}}>
-                        <TextInput placeholder='What do you want to eat ?' style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20,borderWidth:1,borderRadius:25, borderColor:'grey' }} />
+                    <View style={{position:'relative',flex:1,marginTop:20}}>
+                        <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingVertical:7,color:'grey',paddingRight:20,borderWidth:1,borderRadius:25, borderColor:'grey' }}  onPress={() => navigate('HomeStackScreen', { screen: 'Searching' })}>What do you want to eat ?</Text>
                         <View style={{position:'absolute'}}>
-                            <Image style={{width:30,height:20,top:5,left:7}}  source={require('../../../assets/search.png')}/>
+                            <Image style={{width:30,height:20,top:8,left:7}}  source={require('../../../assets/search.png')}/>
                         </View>
                     </View>
-                    <View style={{width:35,marginTop:36,marginLeft:'5%',alignItems:'center'}}>
-                        <Image style={{width:35,height:35}}source={require('../../../assets/love.png')} />
+                    <View style={{marginTop:22,marginLeft:'5%',alignItems:'center'}}>
+                        <Image style={{width:30,height:30}}source={require('../../../assets/love_icon.png')} />
                     </View>
                 </View>
                 <View style={{flex:1,marginTop:17,position:'relative'}}>
                     <SliderBox images={this.state.images} autoplay='true' onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}/>
 
                     <View style={{backgroundColor:'#ededed',position:'absolute',marginTop:'45%',width:'80%',marginHorizontal:'10%',borderRadius:25}}>
-                        <View style={{position:'relative',marginTop:'15%',marginLeft:'10%'}}>
-                            <Image style={{width:5,height:30,marginTop:4,position:'absolute',marginLeft:'12%'}} source={require('../../../assets/pin.png')} />
-                            <Text style={{fontSize:18,textAlign:'center',width:'100%',paddingTop:6,borderColor:'black',textAlign:'center' }}>Saung Baraya Caringin</Text>
+                        <View style={{position:'relative',marginTop:'15%',marginLeft:'10%',marginBottom:'3%'}}>
+                            <View>
+                                <Image style={{width:5,height:30,marginTop:4,position:'absolute',marginLeft:'12%'}} source={require('../../../assets/pin.png')} />
+                            </View>
+                            <View style={{position:'absolute',marginLeft:'24%'}}>
+                                <Text style={{fontSize:18,textAlign:'center',width:'100%',paddingTop:4,borderColor:'black',textAlign:'center' }}>Pujasera Bandung</Text>
+                            </View>
                         </View>
-                        <View style={{justifyContent:'space-between',marginTop:30}}>
+                        <View style={{justifyContent:'space-between',marginTop:40}}>
                             <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
                             <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
                             <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
@@ -65,8 +74,8 @@ class Landing extends Component{
                 <View style={{flex:1,marginTop:'60%'}}>
                     <View style={{ flexDirection: 'row',marginHorizontal:16,marginTop:20,marginBottom:'10%', justifyContent: 'space-between'}}>
                         <Text style={{fontSize:18,color:'black',fontWeight:'550',marginTop:7 }}>Tempat Makan Rekomendasi </Text>
-                        <View style={{backgroundColor:'#E3292A',width:'20%',height:'80%',borderRadius:25}}>
-                            <Text style={{fontSize:15,top:'20%',textAlign:'center',paddingLeft:10,paddingRight:10, color:'white' }}>See All</Text>
+                        <View style={{backgroundColor:'#E3292A',marginTop:'1%',width:'20%',height:'80%',borderRadius:25}}>
+                            <Text style={{fontSize:15,top:'12%',textAlign:'center',paddingLeft:10,paddingRight:10, color:'white' }}>See All</Text>
                         </View>   
                     </View>
                 </View>
