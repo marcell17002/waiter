@@ -81,7 +81,7 @@ class Landing extends Component{
                 </View>
                 <View>
                     <ScrollView horizontal style={{flexDirection:'row'}}>
-                        <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Ayam Nelongso' img={require('../../../assets/ayam_nelongso.jpg')}/>
+                        <Merchant OnPress={() => navigate('MenuPicker')} tittle='Ayam Nelongso' img={require('../../../assets/ayam_nelongso.jpg')}/>
                         <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Mie Aceh' img={require('../../../assets/mie_aceh.jpg')}/>
                         <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Taichan' img={require('../../../assets/taichan.png')}/>
                         <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>

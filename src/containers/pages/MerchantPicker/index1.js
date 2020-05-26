@@ -4,17 +4,15 @@ import MenuMerchant from '../../../components/molecules/MenuMerchant';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import CartReducer from '../../../config/redux/reducer/CartReducer';
-import Order from '../../../components/molecules/Order';
+
 class MerchantPicker  extends Component{
     constructor(props) {
       super(props);
       this.state = {
         dataSource:[],
         dataSourceToko:[],
-        cart:[],
        };
      }
-
     gettingfirst(){
       fetch("http://pesendulu.readylearn.id/item")
       .then(response => response.json())
@@ -25,6 +23,7 @@ class MerchantPicker  extends Component{
       })
       .catch(error=>console.log(error)) //to catch the errors if any
     }
+    
     gettingSecond(){
       fetch("http://pesendulu.readylearn.id/toko")
       .then(response => response.json())
@@ -39,41 +38,9 @@ class MerchantPicker  extends Component{
       this.gettingfirst();
       this.gettingSecond();
       }
-
-    // onAddItem = () => {
-    //   this.setState(state => {
-    //     const cart = [...state.cart, state.dataSource];
-    
-    //     return {
-    //       cart,
-    //       dataSource:[],
-    //     };
-    //   });
-    // };
-
-    onSubtract = (item, index) => {
-      const cart = [...this.state.dataSource];
-      cart[index].quantity -= 1;
-      this.setState({ cart });
-    }
-
-    onAdd = (item, index) => {
-      const cart = [...this.state.dataSource];
-      cart[index].quantity = parseInt(cart[index].quantity) + 1;
-      this.setState({cart });
-    }
+      
     render(){
         const { navigate } = this.props.navigation;
-        const { cart } = this.state;
-
-        let totalQuantity = 0;
-        let totalPrice = 0;
-
-        cart.forEach((item) => {
-          totalQuantity += parseInt(item.quantity);
-          totalPrice += parseInt(item.quantity) * item.harga;
-        })
-
           return (
             <View style={{flex:1,backgroundColor:'#ffff'}}>
                 <ScrollView>
@@ -83,19 +50,20 @@ class MerchantPicker  extends Component{
                             <View>
                                 <Image style={{width:'100%',height:300}} source={{uri: item.url_foto }}/>
                             </View>
-                          <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}} >{item.nama_toko} </Text>
+                          <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}}>{item.nama_toko}</Text>
                           <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}>{item.alamat}</Text>
                           </View>
                           )}
                         
                         
                         <View style={{marginTop:20}}>
-                            <FlatList
-                                data={this.state.dataSource}
-                                renderItem={({item,index}) =>
-                                <Order order={parseInt(item.quantity)} plus= {()=>{this.onAdd(item,index)}} minus={()=>{this.onSubtract(item,index)}} tittle={item.nama_item} price={item.harga} img={require('../../../assets/pizza1.jpg')}/>
-                            } keyExtractor={item => item.id}
-                            />
+                        <FlatList
+                            data={this.state.dataSource}
+                            renderItem={({item}) =>
+                             <MenuMerchant  OnPress={this.props.addItemToCart} tittle_menu={item.nama_item} tittle_desc={item.jenis} price={item.harga} img={item.url_foto}/>}
+                             keyExtractor={item => item.id}
+                        />
+        
                         </View>
 
                     </View>
@@ -103,12 +71,12 @@ class MerchantPicker  extends Component{
                 </ScrollView>
                 <View style={styles.container}>
                     <View style={styles.fab}>
-                        <TouchableOpacity onPress={() => navigate('MenuPicker', {cart: this.state.cart})}>
+                        <TouchableOpacity onPress={() => navigate('MenuPicker')}>
                         <View style={styles.containt}>
                             <View style={{flexDirection:'row',paddingLeft:'10%'}}>
-                                <Text style={{fontSize:20,color:'white'}}>{totalQuantity} item </Text>
-                                <Text style={{fontSize:20,color:'white'}}>| </Text>
-                                <Text style={{fontSize:20,color:'white'}}>{totalPrice}</Text>
+                                <Text style={{fontSize:20,color:'white'}}>{this.props.cartItems.length} item </Text>
+                                <Text style={{fontSize:20,color:'white'}}>|</Text>
+                                <Text style={{fontSize:20,color:'white'}} > 100.000</Text>
                             </View>
                             <View style={{width:25,height:25,marginRight:'5%'}}>
                                 <Image style={{width:undefined,height:undefined,flex:1,resizeMode:'contain'}}source={require('../../../assets/ic_shop.png')}/>

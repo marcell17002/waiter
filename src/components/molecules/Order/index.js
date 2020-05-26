@@ -5,7 +5,7 @@ const Order = (props) =>{
         <View style={{backgroundColor:'white'}}>
         <View style={{position:'relative',marginHorizontal:20,marginTop:15,paddingHorizontal:5,color:'grey'}}>
             <View>
-    <Text style={{paddingLeft:'25%',paddingTop:'2%',color:'black',fontWeight:'700',fontSize:16}}>{props.tittle}</Text>
+             <Text style={{paddingLeft:'25%',paddingTop:'2%',color:'black',fontWeight:'700',fontSize:16}}>{props.tittle}</Text>
             </View>
             <View style={{ flexDirection: 'row',justifyContent: 'space-between',marginTop:10}}>
                 <View>

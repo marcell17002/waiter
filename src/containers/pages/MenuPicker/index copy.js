@@ -11,13 +11,12 @@ class MenuPicker  extends Component{
             count: 0,
             cart:[],
         };
-        console.log(this.props.cart);
+        console.log(this.props.cart)
       }
     render(){
         const { navigate } = this.props.navigation;
         const { cart } = this.props.route.params;
         const { itemId } = this.props.route.params;
-        console.log(this.props.cart);
         return (
             
             <View style={{flex:1,backgroundColor:'white'}}>
@@ -49,8 +48,8 @@ class MenuPicker  extends Component{
                             </View>
                         </View>
                     <View style={{}}>
-                    <Text>itemId: {JSON.stringify(cart)}</Text>
-                    
+                    {/* <Text>itemId: {JSON.stringify(itemId)}</Text>
+                    <Text>Id: {JSON.stringify(item)}</Text> */}
                         {/* {
                             cart.map((item) => {
                                 return (
@@ -84,6 +83,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+console.log(this.cartItems);
 export default connect(mapStateToProps)(MenuPicker)
 
 const styles = StyleSheet.create({

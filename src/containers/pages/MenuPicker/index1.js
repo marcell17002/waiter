@@ -9,15 +9,12 @@ class MenuPicker  extends Component{
         super(props);
         this.state ={
             count: 0,
-            cart:[],
+            cartItems:[],
         };
-        console.log(this.props.cart);
+        console.log(this.props.cartItems)
       }
     render(){
         const { navigate } = this.props.navigation;
-        const { cart } = this.props.route.params;
-        const { itemId } = this.props.route.params;
-        console.log(this.props.cart);
         return (
             
             <View style={{flex:1,backgroundColor:'white'}}>
@@ -49,17 +46,19 @@ class MenuPicker  extends Component{
                             </View>
                         </View>
                     <View style={{}}>
-                    <Text>itemId: {JSON.stringify(cart)}</Text>
-                    
-                        {/* {
-                            cart.map((item) => {
-                                return (
-                                    <View>
-                                        <View>{item.nama_item}</View>
-                                    </View>
-                                );
-                            })
-                        } */}
+                        {this.props.cartItems.length > 0 ?
+                        
+                        <ScrollView>
+                            <FlatList
+                            data={this.props.cartItems}
+                            renderItem={({item}) =>   <Order order={this.props.count} plus= {this.props.counterIncrement} tittle={item.nama_item} price={item.harga} img={require('../../../assets/pizza1.jpg')}/>
+                            } 
+                            keyExtractor={item => item.id}
+                            />
+                             </ScrollView>
+                            :
+                            <EmptyCart />
+                        }
                     </View>
                 </ScrollView>
                 <View style={styles.container}>
@@ -84,6 +83,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+console.log(this.cartItems);
 export default connect(mapStateToProps)(MenuPicker)
 
 const styles = StyleSheet.create({
