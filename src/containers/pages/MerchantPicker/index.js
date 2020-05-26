@@ -53,7 +53,7 @@ class MerchantPicker  extends Component{
 
     onSubtract = (item, index) => {
       const cart = [...this.state.dataSource];
-      cart[index].quantity -= 1;
+      cart[index].quantity = parseInt(cart[index].quantity) - 1;
       this.setState({ cart });
     }
 
