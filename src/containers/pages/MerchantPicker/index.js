@@ -4,7 +4,7 @@ import MenuMerchant from '../../../components/molecules/MenuMerchant';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
 import CartReducer from '../../../config/redux/reducer/CartReducer';
-import Order from '../../../components/molecules/Order';
+
 class MerchantPicker  extends Component{
     constructor(props) {
       super(props);
@@ -39,17 +39,6 @@ class MerchantPicker  extends Component{
       this.gettingfirst();
       this.gettingSecond();
       }
-
-    // onAddItem = () => {
-    //   this.setState(state => {
-    //     const cart = [...state.cart, state.dataSource];
-    
-    //     return {
-    //       cart,
-    //       dataSource:[],
-    //     };
-    //   });
-    // };
 
     onSubtract = (item, index) => {
       const cart = [...this.state.dataSource];
@@ -93,7 +82,7 @@ class MerchantPicker  extends Component{
                             <FlatList
                                 data={this.state.dataSource}
                                 renderItem={({item,index}) =>
-                                <Order order={parseInt(item.quantity)} plus= {()=>{this.onAdd(item,index)}} minus={()=>{this.onSubtract(item,index)}} tittle={item.nama_item} price={item.harga} img={require('../../../assets/pizza1.jpg')}/>
+                                <MenuMerchant order={parseInt(item.quantity)} plus= {()=>{this.onAdd(item,index)}} minus={()=>{this.onSubtract(item,index)}} tittle_desc={item.jenis} tittle_menu={item.nama_item} price={item.harga} img={item.url_foto}/>
                             } keyExtractor={item => item.id}
                             />
                         </View>
@@ -103,7 +92,7 @@ class MerchantPicker  extends Component{
                 </ScrollView>
                 <View style={styles.container}>
                     <View style={styles.fab}>
-                        <TouchableOpacity onPress={() => navigate('MenuPicker', {cart: this.state.cart})}>
+                        <TouchableOpacity onPress={() => navigate('MenuPicker', {cart: this.state.cart , dataSourceToko : this.state.dataSourceToko})}>
                         <View style={styles.containt}>
                             <View style={{flexDirection:'row',paddingLeft:'10%'}}>
                                 <Text style={{fontSize:20,color:'white'}}>{totalQuantity} item </Text>
@@ -111,7 +100,7 @@ class MerchantPicker  extends Component{
                                 <Text style={{fontSize:20,color:'white'}}>{totalPrice}</Text>
                             </View>
                             <View style={{width:25,height:25,marginRight:'5%'}}>
-                                <Image style={{width:undefined,height:undefined,flex:1,resizeMode:'contain'}}source={require('../../../assets/ic_shop.png')}/>
+                                <Image style={{width:undefined,height:undefined,flex:1,resizeMode:'contain'}} source={require('../../../assets/ic_shop.png')}/>
                             </View>
                         </View>
                         </TouchableOpacity>

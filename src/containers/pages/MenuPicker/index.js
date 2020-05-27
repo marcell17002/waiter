@@ -8,16 +8,25 @@ class MenuPicker  extends Component{
     constructor(props) {
         super(props);
         this.state ={
-            count: 0,
             cart:[],
+            dataSourceToko:[],
         };
-        console.log(this.props.cart);
       }
+      componentDidMount(){
+        const { cart } = this.props.route.params;
+        const { dataSourceToko } = this.props.route.params;
+        this.setState({cart : cart ,dataSourceToko: dataSourceToko});
+    }
     render(){
         const { navigate } = this.props.navigation;
-        const { cart } = this.props.route.params;
-        const { itemId } = this.props.route.params;
-        console.log(this.props.cart);
+        const { cart } = this.state;
+        let totalQuantity = 0;
+        let totalPrice = 0;
+
+        cart.forEach((item) => {
+          totalQuantity += parseInt(item.quantity);
+          totalPrice += parseInt(item.quantity) * item.harga;
+        })
         return (
             
             <View style={{flex:1,backgroundColor:'white'}}>
@@ -28,7 +37,9 @@ class MenuPicker  extends Component{
                         </View>
                         <View style={{marginLeft:20}}>
                             <Text style={{fontSize:14,color:'grey',fontWeight:'500'}}>Merchant Location</Text>
-                            <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>Jl. Jatinangor Sumedang No.179</Text>
+                            {this.state.dataSourceToko.map(item =>
+                            <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>{item.alamat}</Text>
+                            )}
                         </View>
                     </View>
                     <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:15}}>
@@ -49,25 +60,22 @@ class MenuPicker  extends Component{
                             </View>
                         </View>
                     <View style={{}}>
-                    <Text>itemId: {JSON.stringify(cart)}</Text>
-                    
-                        {/* {
-                            cart.map((item) => {
-                                return (
-                                    <View>
-                                        <View>{item.nama_item}</View>
-                                    </View>
-                                );
-                            })
-                        } */}
+                            <FlatList
+                                data={this.state.cart}
+                                renderItem={({item,index}) =>
+                                   { if(item.quantity >0 ){
+                                        return <Order price={item.harga} quantity={parseInt(item.quantity)} tittle={item.nama_item} img={item.url_foto}/>;
+                                    }
+                                }} keyExtractor={item => item.id}
+                            />
                     </View>
                 </ScrollView>
                 <View style={styles.container}>
                     <View style={styles.fab}>
-                        <TouchableOpacity onPress={()=>navigate('OrdersStackScreen',{screen:'Orders'})}>
+                        <TouchableOpacity onPress={()=>navigate('OrdersStackScreen',{screen:'Orders',params :{cart :this.state.cart ,dataSourceToko: this.state.dataSourceToko}})}>
                         <View style={styles.containt}>
                             <View style={{paddingLeft:'30%'}}>
-                                <Text style={{fontSize:18,color:'white',textAlign:'center'}}> 100.000</Text>
+                                <Text style={{fontSize:18,color:'white',textAlign:'center'}}>Rp. {totalPrice}</Text>
                                 <Text style={{fontSize:20,color:'white',textAlign:'center',fontWeight:'bold'}}>Pre Order Now</Text>
                             </View>
                         </View>

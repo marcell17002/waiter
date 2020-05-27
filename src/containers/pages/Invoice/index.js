@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView, Button, Alert} from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, FlatList, Alert} from 'react-native';
 import Order from '../../../components/molecules/Order';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 function Separator() {
@@ -11,9 +11,26 @@ function Separator() {
 class Invoice  extends Component{
     constructor(props) {
         super(props);
+        this.state ={
+            cart:[],
+            dataSourceToko:[],
+        };
       }
+      componentDidMount(){ 
+        const { cart } = this.props.route.params;
+        const { dataSourceToko } = this.props.route.params;
+        this.setState({cart : cart ,dataSourceToko: dataSourceToko});
+        }
     render(){
         const { navigate } = this.props.navigation;
+        const { cart } = this.state;
+        let totalQuantity = 0;
+        let totalPrice = 0;
+
+        cart.forEach((item) => {
+          totalQuantity += parseInt(item.quantity);
+          totalPrice += parseInt(item.quantity) * item.harga;
+        })
         return (
             <View style={{flex:1,backgroundColor:'white'}}>
                 <ScrollView>
@@ -32,7 +49,9 @@ class Invoice  extends Component{
                         </View>
                         <View style={{marginLeft:20}}>
                             <Text style={{fontSize:14,color:'grey',fontWeight:'500'}}>Merchant Location</Text>
-                            <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>Jl. Jatinangor Sumedang No.179</Text>
+                            {this.state.dataSourceToko.map(item =>
+                            <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>{item.alamat}</Text>
+                            )}
                         </View>
                     </View>
                     <View style={{flexDirection:'row',marginTop:20,paddingVertical:'5%',paddingHorizontal:'2%',backgroundColor:'white',justifyContent:'space-between'}}>
@@ -42,17 +61,20 @@ class Invoice  extends Component{
                         </View>
                     </View>
                     <View>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
-                        <Order tittle='Pizza Pepperoni' price='40000' img={require('../../../assets/pizza1.jpg')}/>
+                        <FlatList
+                            data={this.state.cart}
+                            renderItem={({item,index}) =>
+                               { if(item.quantity >0 ){
+                                    return <Order price={item.harga} quantity={parseInt(item.quantity)} tittle={item.nama_item} img={item.url_foto}/>;
+                                }
+                            }} keyExtractor={item => item.id}
+                        />   
                     </View>
                     <View style={{marginHorizontal:15,marginTop:'6%',marginBottom:'5%'}}>
                         <Separator/>
                         <View style={{flexDirection:'row',marginTop:'3%',justifyContent:'space-between'}}>
                             <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>Total</Text>
-                            <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>100.000</Text>
+                            <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}>{totalPrice}</Text>
                         </View>
                         <View style={{marginTop:'5%'}}>
                             <Separator/>

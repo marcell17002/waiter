@@ -11,14 +11,14 @@ const Order = (props) =>{
                 <View>
                     <Text style={{color:'black',paddingLeft:'25%',paddingTop:10,fontWeight:'bold',fontSize:15}}>{props.price}</Text>
                 </View>  
-                <View style={{backgroundColor:'#e6e6e6',marginBottom:'5%',marginTop:'5%',justifyContent:'flex-end',borderRadius:10,height:30,width:80,flexDirection:'row'}}>
-                    <Text style={{fontSize:40,color:'#24972B',fontWeight:'bold',bottom:11,textAlign:'center'}} onPress={props.minus}>- </Text>
-                    <Text style={{fontSize:20,color:'black',fontWeight:'bold',top:3,textAlign:'center'}}> {props.order} </Text>
-                    <Text style={{paddingRight:'8%',paddingLeft:'1%',fontSize:25,color:'#24972B',fontWeight:'bold',top:1,textAlign:'center'}} onPress={props.plus}> + </Text>
+                <View style={{ flexDirection: 'row',justifyContent: 'space-between',marginTop:10}}>
+                    <View style={{backgroundColor:'#E3292A',borderRadius:25,height:35,width:60}}>
+                        <Text style={{fontSize:16,color:'white',paddingVertical:6,textAlign:'center'}}>{props.quantity}</Text>
+                    </View>
                 </View>
             </View>
             <View style={{width:80, height:90,position:'absolute'}}>
-                <Image style={{width:undefined,height:undefined,resizeMode:'contain',flex:1,borderRadius:25}} source={props.img} />
+                <Image style={{width:undefined,height:undefined,resizeMode:'contain',flex:1,borderRadius:25}} source={{uri : props.img}} />
             </View>
         </View>
     </View>

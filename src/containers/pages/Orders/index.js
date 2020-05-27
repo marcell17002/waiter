@@ -3,22 +3,28 @@ import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
 import Menu from '../../../components/molecules/Menu';
 import History from '../../../components/molecules/History';
 
-function Separator() {
-    return <View style={{
-        marginVertical: 8,
-        borderBottomColor: '#737373',
-        borderBottomWidth: StyleSheet.hairlineWidth,}} />;
-  }
 class Orders extends Component{
+    constructor(props) {
+        super(props);
+        this.state ={
+            cart:[],
+            dataSourceToko:[],
+        };
+      }
+      componentDidMount(){ 
+        const { cart } = this.props.route.params;
+        const { dataSourceToko } = this.props.route.params;
+        this.setState({cart : cart ,dataSourceToko: dataSourceToko});
+        }
     render(){
         const { navigate } = this.props.navigation;
-        
         return (
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
                     <View style={{marginBottom:'20%'}}>
-                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
-                        <History  OnPress={()=>navigate('Invoice')} date="5 mniutes ago" status="OnGoing" tittle="Dominoz Pizza" img={require('../../../assets/dominoz.jpg')}/>
+                        {this.state.dataSourceToko.map(item =>
+                        <History  date="2 mniutes ago" status="OnGoing" tittle={item.nama_toko} img={item.url_foto}/>
+                        )}
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
