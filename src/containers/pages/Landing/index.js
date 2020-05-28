@@ -25,8 +25,9 @@ class Landing extends Component{
       }
     render(){
         const { navigate } = this.props.navigation;
+        console.disableYellowBox = true;
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,marginTop:20}}>
                 <ScrollView>
                 <View style={{marginHorizontal:17,flexDirection:'row'}}>
                     <View style={{position:'relative',flex:1,marginTop:20}}>
@@ -52,10 +53,30 @@ class Landing extends Component{
                             </View>
                         </View>
                         <View style={{justifyContent:'space-between',marginTop:40}}>
-                            <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
-                            <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
-                            <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
-                            <Text style={{fontSize:13,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>MENU</Text>
+                            <View style={{flexDirection:'row'}}>
+                                <View style={{width:200}}>
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>Mi Goreng Pujas </Text>
+                                </View>
+                                <View style={{position:'absolute',marginLeft:'60%'}}>
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>2 </Text>
+                                </View>
+                            </View>
+                            <View style={{flexDirection:'row'}}>
+                                <View style={{width:200}}>
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>Nasi Ayam Bakar </Text>
+                                </View>
+                                <View style={{position:'absolute',marginLeft:'60%'}} >
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>1 </Text>
+                                </View>
+                            </View>
+                            <View style={{flexDirection:'row'}}>
+                                <View style={{width:200}}>
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>Jus Jeruk Panas</Text>
+                                </View>
+                                <View  style={{position:'absolute',marginLeft:'60%'}}>
+                                    <Text style={{fontSize:15,paddingLeft:50,width:'100%',paddingRight:20, borderColor:'black' }}>4 </Text>
+                                </View>
+                            </View>
                         </View>
                         <View style={{ flexDirection: 'row',marginHorizontal:40,marginTop:30,marginBottom:'7%', justifyContent: 'space-between'}}>
                              <View style={{backgroundColor:'#E3292A',borderRadius:25,height:'90%'}}>

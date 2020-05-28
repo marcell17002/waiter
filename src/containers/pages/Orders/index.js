@@ -10,6 +10,7 @@ class Orders extends Component{
             cart:[],
             dataSourceToko:[],
         };
+        console.log(this.state.cart);
       }
       componentDidMount(){ 
         const { cart } = this.props.route.params;
@@ -23,7 +24,7 @@ class Orders extends Component{
                 <ScrollView style={{marginHorizontal:15}}>
                     <View style={{marginBottom:'20%'}}>
                         {this.state.dataSourceToko.map(item =>
-                        <History  date="2 mniutes ago" status="OnGoing" tittle={item.nama_toko} img={item.url_foto}/>
+                            <History  OnPress={() => navigate('Invoice', {cart: this.state.cart , dataSourceToko : this.state.dataSourceToko})} date="2 mniutes ago" status="OnGoing" tittle={item.nama_toko} img={item.url_foto}/>
                         )}
                     </View>
                 </ScrollView>

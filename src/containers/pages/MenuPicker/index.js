@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView, FlatList, Alert} from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, FlatList, Alert, AsyncStorage} from 'react-native';
 import Order from '../../../components/molecules/Order';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-
+function Separator() {
+    return <View style={{
+        marginVertical: 8,
+        borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,}} />;
+  }
 class MenuPicker  extends Component{
     constructor(props) {
         super(props);
@@ -17,6 +22,7 @@ class MenuPicker  extends Component{
         const { dataSourceToko } = this.props.route.params;
         this.setState({cart : cart ,dataSourceToko: dataSourceToko});
     }
+
     render(){
         const { navigate } = this.props.navigation;
         const { cart } = this.state;
@@ -42,7 +48,7 @@ class MenuPicker  extends Component{
                             )}
                         </View>
                     </View>
-                    <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:15}}>
+                    <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:15,marginBottom:15}}>
                         <View>
                             <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Estimating Time</Text>
                             <Text style={{fontSize:13,color:'grey',fontWeight:'600'}}>You will get your order in </Text>
@@ -51,7 +57,8 @@ class MenuPicker  extends Component{
                             <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
                         </View>
                     </View>
-                    <View style={{flexDirection:'row',marginTop:20,paddingVertical:'5%',paddingHorizontal:'2%',backgroundColor:'white',justifyContent:'space-between'}}>
+                    <Separator/>
+                    <View style={{flexDirection:'row',marginTop:5,paddingVertical:'5%',paddingHorizontal:'2%',backgroundColor:'white',justifyContent:'space-between'}}>
                             <View>
                                 <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Order item(s)</Text>
                             </View>
@@ -72,7 +79,7 @@ class MenuPicker  extends Component{
                 </ScrollView>
                 <View style={styles.container}>
                     <View style={styles.fab}>
-                        <TouchableOpacity onPress={()=>navigate('OrdersStackScreen',{screen:'Orders',params :{cart :this.state.cart ,dataSourceToko: this.state.dataSourceToko}})}>
+                        <TouchableOpacity onPress={()=>navigate('OrdersStackScreen',{screen:'On-Going Orders',params :{cart :this.state.cart ,dataSourceToko: this.state.dataSourceToko}})}>
                         <View style={styles.containt}>
                             <View style={{paddingLeft:'30%'}}>
                                 <Text style={{fontSize:18,color:'white',textAlign:'center'}}>Rp. {totalPrice}</Text>

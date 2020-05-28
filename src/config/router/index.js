@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile, EditProfile,Invoice,Searching} from '../../containers/pages/';
+import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile,EditProfiles,Invoice,Searching} from '../../containers/pages/';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
@@ -40,7 +40,7 @@ function ProfileStackScreen () {
   return(
   <ProfileStack.Navigator>
     <ProfileStack.Screen name="Profile" component={Profile}/>
-    <ProfileStack.Screen name="Edit Profile" component={EditProfile}/>
+    <ProfileStack.Screen name="EditProfile" component={EditProfiles}/>
   </ProfileStack.Navigator>
 );
   }

@@ -8,6 +8,7 @@ const storeRedux = createStore(rootReducer);
 console.log(storeRedux.getState())
 class App extends Component{
   render(){
+    console.disableYellowBox = true;
     return (
       <Provider store={storeRedux}>
         <Router />

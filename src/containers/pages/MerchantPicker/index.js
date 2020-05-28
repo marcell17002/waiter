@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView, FlatList } from 'react-native';
+import {Text,StyleSheet, View, Image, ScrollView, FlatList, AsyncStorage } from 'react-native';
 import MenuMerchant from '../../../components/molecules/MenuMerchant';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {connect} from 'react-redux';
@@ -51,6 +51,7 @@ class MerchantPicker  extends Component{
       cart[index].quantity = parseInt(cart[index].quantity) + 1;
       this.setState({cart });
     }
+    
     render(){
         const { navigate } = this.props.navigation;
         const { cart } = this.state;
@@ -78,7 +79,7 @@ class MerchantPicker  extends Component{
                           )}
                         
                         
-                        <View style={{marginTop:20}}>
+                        <View style={{marginTop:20,marginBottom:90}}>
                             <FlatList
                                 data={this.state.dataSource}
                                 renderItem={({item,index}) =>

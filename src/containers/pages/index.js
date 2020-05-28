@@ -5,7 +5,7 @@ import MerchantPicker from './MerchantPicker';
 import MenuPicker from './MenuPicker';
 import Orders from './Orders';
 import Profile from './Profile';
-import EditProfile from './EditProfile';
+import EditProfiles from './EditProfiles';
 import Invoice from './Invoice';
 import Searching from './Searching';
 
@@ -17,7 +17,7 @@ export{
     MenuPicker,
     Orders,
     Profile,
-    EditProfile,
+    EditProfiles,
     Invoice,
     Searching,
 }

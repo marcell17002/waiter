@@ -7,7 +7,7 @@ function Separator() {
         borderBottomColor: '#737373',
         borderBottomWidth: StyleSheet.hairlineWidth,}} />;
   }
-class EditProfile extends Component{
+class EditProfiles extends Component{
     render(){
         const { navigate } = this.props.navigation;
         
@@ -33,4 +33,4 @@ class EditProfile extends Component{
         )
     }
 }
-export default EditProfile;
+export default EditProfiles;

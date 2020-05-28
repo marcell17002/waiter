@@ -11,7 +11,6 @@ function Separator() {
 class Profile extends Component{
     render(){
         const { navigate } = this.props.navigation;
-        
         return (
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
@@ -27,11 +26,11 @@ class Profile extends Component{
                                 <Image style={{width:50,height:50,borderRadius:50/2}}source={require('../../../assets/pizza1.jpg')}/>
                             </View>
                             <View style={{marginLeft:'5%'}}>
-                                <Text style={{fontSize:15,color:'black',fontWeight:'700'}}>Marcell Antonius</Text>
+                                <Text style={{fontSize:15,color:'black',fontWeight:'700'}} >Marcell Antonius</Text>
                                 <Text style={{fontSize:15,color:'black',fontWeight:'400'}}>+62 895401011469</Text>
                             </View>
                             <View style={{backgroundColor:'#F20C94',marginLeft:'22%',width:50,height:30,borderRadius:25}}>
-                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}} onPress={()=> navigate('EditProfile')}>Edit</Text> 
+                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}} onPress={() => navigate('EditProfile')} >Edit</Text> 
                             </View>
                         </View>
                         <View style={{marginTop:'10%'}}>
