@@ -8,6 +8,7 @@ import Profile from './Profile';
 import EditProfiles from './EditProfiles';
 import Invoice from './Invoice';
 import Searching from './Searching';
+import Maps from './Maps';
 
 export{
     Login,
@@ -20,4 +21,5 @@ export{
     EditProfiles,
     Invoice,
     Searching,
+    Maps,
 }

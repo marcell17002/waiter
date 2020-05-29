@@ -23,7 +23,7 @@ const History = props => {
             </View>
             <View style={{marginLeft:'80%',marginTop:'2%',position:'absolute'}}>    
             <CountDown
-              until={60*30}
+              until={60*10}
               onFinish={() => alert('finished')}
               onPress={() => alert('hello')}
               size={15}

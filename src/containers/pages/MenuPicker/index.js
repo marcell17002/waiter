@@ -41,12 +41,14 @@ class MenuPicker  extends Component{
                         <View style={{top:5,paddingLeft:'2%'}}>
                             <Image style={{width:35,height:35,resizeMode:'contain'}}source={require('../../../assets/target.png')}/>
                         </View>
+                        <TouchableOpacity onPress={()=> navigate('OrdersStackScreen',{screen:'Location'})} >
                         <View style={{marginLeft:20}}>
                             <Text style={{fontSize:14,color:'grey',fontWeight:'500'}}>Merchant Location</Text>
                             {this.state.dataSourceToko.map(item =>
                             <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>{item.alamat}</Text>
                             )}
                         </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={{marginHorizontal:'2%',flexDirection:'row',marginTop:15,marginBottom:15}}>
                         <View>
@@ -54,7 +56,7 @@ class MenuPicker  extends Component{
                             <Text style={{fontSize:13,color:'grey',fontWeight:'600'}}>You will get your order in </Text>
                         </View>
                         <View style={{marginLeft:'85%',position:'absolute',alignSelf:'flex-end'}}>    
-                            <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
+                            <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>10:00 </Text>
                         </View>
                     </View>
                     <Separator/>

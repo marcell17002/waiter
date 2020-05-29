@@ -108,17 +108,63 @@ class Landing extends Component{
                         <Merchant OnPress={() => navigate('MerchantPicker')} tittle='Dimsum' img={require('../../../assets/dimsum.jpg')}/>
                     </ScrollView>
                 </View>
-                <View style={{marginHorizontal:16,marginTop:'5%',marginBottom:'5%'}}>
+                <View style={{marginHorizontal:16}}>
+                <View style={{marginTop:'5%',marginBottom:'5%'}}>
                     <View style={{borderRadius:14}}>
-                        <Image style={{width:360,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo.png')} />      
+                        <Image style={{width:380,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo.png')} />      
                     </View>
-                    <View>
-                        <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
-                        <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
-                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,paddingVertical:11,borderRadius:6,alignSelf:'flex-end'}}>
+                    <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
+                        <View>
+                            <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
+                            <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
+                        </View>
+                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,marginTop:8,paddingVertical:7,borderRadius:6,justifyContent :'flex-end'}}>
                             <Text  style={{fontSize:15,fontWeight:'400',color:'white'}}>READ</Text>
                         </View>
                     </View>
+                </View>
+                <View style={{marginBottom:'5%'}}>
+                    <View style={{borderRadius:14}}>
+                        <Image style={{width:380,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo1.png')} />      
+                    </View>
+                    <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
+                        <View>
+                            <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
+                            <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
+                        </View>
+                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,marginTop:8,paddingVertical:7,borderRadius:6,justifyContent :'flex-end'}}>
+                            <Text  style={{fontSize:15,fontWeight:'400',color:'white'}}>READ</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style={{marginBottom:'5%'}}>
+                    <View style={{borderRadius:14}}>
+                        <Image style={{width:380,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo2.jpg')} />      
+                    </View>
+                    <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
+                        <View>
+                            <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
+                            <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
+                        </View>
+                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,marginTop:8,paddingVertical:7,borderRadius:6,justifyContent :'flex-end'}}>
+                            <Text  style={{fontSize:15,fontWeight:'400',color:'white'}}>READ</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style={{marginBottom:'5%'}}>
+                    <View style={{borderRadius:14}}>
+                        <Image style={{width:380,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={require('../../../assets/promo3.jpg')} />      
+                    </View>
+                    <View style={{flexDirection:'row',justifyContent: 'space-between'}}>
+                        <View>
+                            <Text style={{fontSize:17,fontWeight:'bold'}}>Promo</Text>
+                            <Text style={{fontSize:15,fontWeight:'400'}}>Dapatkan Promo Setiap Hari Minggu!</Text>
+                        </View>
+                        <View style={{backgroundColor:'#eb3734',paddingHorizontal:12,marginTop:8,paddingVertical:7,borderRadius:6,justifyContent :'flex-end'}}>
+                            <Text  style={{fontSize:15,fontWeight:'400',color:'white'}}>READ</Text>
+                        </View>
+                    </View>
+                </View>
                 </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>

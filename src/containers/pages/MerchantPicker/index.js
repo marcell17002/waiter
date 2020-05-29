@@ -73,8 +73,10 @@ class MerchantPicker  extends Component{
                             <View>
                                 <Image style={{width:'100%',height:300}} source={{uri: item.url_foto }}/>
                             </View>
-                          <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}} >{item.nama_toko} </Text>
-                          <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}>{item.alamat}</Text>
+                            <TouchableOpacity onPress={()=> navigate('OrdersStackScreen',{screen:'Location'})} >
+                              <Text style={{marginLeft:15,marginTop:15,color:'#E3292A',fontWeight:'bold',fontSize:20}} >{item.nama_toko} </Text>
+                              <Text style={{marginLeft:15,marginTop:5,color:'grey',fontWeight:'400',fontSize:15}}>{item.alamat}</Text>
+                            </TouchableOpacity>
                           </View>
                           )}
                         

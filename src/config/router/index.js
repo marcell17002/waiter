@@ -1,5 +1,5 @@
 import React from 'react';
-import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile,EditProfiles,Invoice,Searching} from '../../containers/pages/';
+import { Login,Register,Landing,MerchantPicker,MenuPicker,Orders,Profile,EditProfiles,Invoice,Searching,Maps} from '../../containers/pages/';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator} from '@react-navigation/stack';
@@ -33,6 +33,7 @@ function OrdersStackScreen () {
   <OrdersStack.Navigator>
     <OrdersStack.Screen name="On-Going Orders" component={Orders}/>
     <OrdersStack.Screen name="Invoice" component={Invoice}/>
+    <OrdersStack.Screen name="Location" component={Maps}/>
   </OrdersStack.Navigator>
 );
   }

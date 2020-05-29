@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Text,StyleSheet, View, Image, ScrollView, FlatList, Alert} from 'react-native';
 import Order from '../../../components/molecules/Order';
+import CountDown from 'react-native-countdown-component';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 function Separator() {
     return <View style={{
@@ -39,22 +40,33 @@ class Invoice  extends Component{
                             <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Estimating Time</Text>
                             <Text style={{fontSize:13,color:'grey',fontWeight:'600'}}>You will get your order in </Text>
                         </View>
-                        <View style={{marginLeft:'85%',position:'absolute',alignSelf:'flex-end'}}>    
-                            <Text style={{fontSize:20,color:'Blue',fontWeight:'bold'}}>20:00 </Text>
+                        <View style={{marginLeft:'72%',paddingTop:'3%',position:'absolute',alignSelf:'flex-end'}}>    
+                            <CountDown
+                                until={60*10}
+                                onFinish={() => alert('Selamat Menikmati! ')}
+                                onPress={() => alert('Hurry Up')}
+                                size={20}
+                                digitStyle={{backgroundColor: ' #fafafa'}}
+                                timeToShow={['M', 'S']}
+                                timeLabels={{m: null, s: null}}
+                            />
                         </View>
                     </View>
                     <View style={{flexDirection:'row',marginTop:20,paddingVertical:'5%',backgroundColor:'white'}}>
                         <View style={{top:5,paddingLeft:'2%'}}>
                             <Image style={{width:35,height:35,resizeMode:'contain'}}source={require('../../../assets/target.png')}/>
                         </View>
+                        <TouchableOpacity onPress={()=> navigate('Location')} >
                         <View style={{marginLeft:20}}>
                             <Text style={{fontSize:14,color:'grey',fontWeight:'500'}}>Merchant Location</Text>
                             {this.state.dataSourceToko.map(item =>
                             <Text style={{fontSize:17,color:'black',fontWeight:'bold'}}>{item.alamat}</Text>
                             )}
                         </View>
+                        </TouchableOpacity>
                     </View>
-                    <View style={{flexDirection:'row',marginTop:20,paddingVertical:'5%',paddingHorizontal:'2%',backgroundColor:'white',justifyContent:'space-between'}}>
+                    <Separator/>
+                    <View style={{flexDirection:'row',paddingVertical:'5%',paddingHorizontal:'2%',backgroundColor:'white'}}>
                         <View>
                             <Text style={{fontSize:16,color:'black',fontWeight:'bold'}}>Order item(s)</Text>
                             <Text style={{fontSize:13,color:'grey',fontWeight:'900'}}>What you have been order </Text>

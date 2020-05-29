@@ -20,12 +20,14 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "assets/*"
-    ],
-    "description": "",
     "android": {
-      "package": "com.bandung.waiter"  
+      "package": "com.delphijuara.cohealth"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
     }
   }
 }

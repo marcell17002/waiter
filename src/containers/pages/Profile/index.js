@@ -18,19 +18,19 @@ class Profile extends Component{
                         <View>
                             <Text style={{fontSize:17,marginTop:'2%',color:'Black',textAlign:'center',fontWeight:'bold'}}>Free Account</Text>
                             <View style={{marginLeft:'20%',marginTop:'2%',backgroundColor:'#114C98',height:40,width:200,borderRadius:25}}>
-                                <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}> PREMIUM</Text>
+                                <Text style={{fontSize:17,paddingVertical:10,textAlign:'center',color:'white'}}> PREMIUM</Text>
                             </View>
                         </View>
                         <View style={{flexDirection:'row',marginTop:'8%'}}>
                             <View>
-                                <Image style={{width:50,height:50,borderRadius:50/2}}source={require('../../../assets/pizza1.jpg')}/>
+                                <Image style={{width:80,height:80,borderRadius:80/2}}source={require('../../../assets/pizza1.jpg')}/>
                             </View>
-                            <View style={{marginLeft:'5%'}}>
+                            <View style={{marginLeft:'5%',paddingTop:'4%'}}>
                                 <Text style={{fontSize:15,color:'black',fontWeight:'700'}} >Marcell Antonius</Text>
                                 <Text style={{fontSize:15,color:'black',fontWeight:'400'}}>+62 895401011469</Text>
                             </View>
-                            <View style={{backgroundColor:'#F20C94',marginLeft:'22%',width:50,height:30,borderRadius:25}}>
-                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}} onPress={() => navigate('EditProfile')} >Edit</Text> 
+                            <View style={{backgroundColor:'#F20C94',marginTop:'4%',marginLeft:'80%',width:10,height:30,borderRadius:25,position:'absolute'}}>
+                                <Text style={{color:'white',textAlign:'center',paddingVertical:8}} onPress={() => navigate('EditProfile')} >Edit</Text> 
                             </View>
                         </View>
                         <View style={{marginTop:'10%'}}>

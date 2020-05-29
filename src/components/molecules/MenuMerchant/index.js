@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, Button} from 'react-native';
 const MenuMerchant = (props) =>{
     return(
         <View style={{position:'relative',marginHorizontal:20,marginTop:20,marginBottom:'5%',paddingHorizontal:5,color:'grey'}}>
@@ -17,20 +17,20 @@ const MenuMerchant = (props) =>{
                     <Text style={{color:'black',paddingLeft:'25%',paddingTop:10,fontWeight:'bold',fontSize:15}}> {props.price}</Text>
                 </View>  
 
-                <View style={{backgroundColor:'#e6e6e6',justifyContent:'flex-end',borderRadius:10,paddingTop:5,height:30,width:80}}>
-                    <View style={{flexDirection:'row',position:'relative',marginLeft:'7%'}}>
+                <View style={{backgroundColor:'#e6e6e6',justifyContent:'flex-end',borderRadius:10,height:30,width:80}}>
+                    <View style={{flexDirection: 'row', flex: 1, alignItems: 'center' ,marginLeft:'9%'}}>
                         <View style={{}}>
-                            <Text style={{paddingLeft:'1%',top:5,fontSize:40,color:'#24972B',fontWeight:'bold'}} onPress={props.minus}>- </Text>
+                            <Text style={{paddingLeft:'1%',fontSize:40,color:'#24972B'}} onPress={props.minus}>- </Text>
                         </View>
-                        <View style={{}} >
-                            <Text style={{fontSize:20,paddingTop:20,color:'black',fontWeight:'bold'}}> {props.order} </Text>
+                        <View style={{marginHorizontal:3}} >
+                            <Text style={{fontSize:20,color:'black',fontWeight:'bold'}}> {props.order} </Text>
                         </View>
-                        <View style={{position:'absolute',marginLeft:'65%'}}>
-                        <Text style={{paddingRight:'2%',paddingTop:18,fontSize:25,color:'#24972B'}} onPress={props.plus}> + </Text>
+                        <View style={{justifyContent:'flex-end'}}>
+                        <Text style={{paddingRight:'2%',fontSize:25,color:'#24972B'}} onPress={props.plus}> + </Text>
                         </View>
                     </View>
                 </View>
-
+                
             </View>
             <View style={{width:80, height:90,position:'absolute'}}>
                 <Image style={{width:undefined,height:undefined,resizeMode:'contain',flex:1,borderRadius:25}} source={{uri : props.img}} />
